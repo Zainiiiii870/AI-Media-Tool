@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online video editing tool to optimize and compress your videos with quality control. Perfect for content creators and social media managers.">
+    <meta name="keywords" content="video editor, video optimization, video compressor, video quality tool, online video editor">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Online Video Editor - Optimize Your Videos">
+    <meta property="og:description" content="Free online tool to edit and optimize your videos for web and social media.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourvideosite.com">
+    <meta property="og:image" content="https://yourvideosite.com/preview.jpg">
+    <title>Online Video Editor - Optimize Video Quality | VideoTool</title>
+    <link rel="canonical" href="https://yourvideosite.com" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #FF5722;
+            --secondary-color: #607D8B;
+            --accent-color: #FFC107;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .editor-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        .editor-panel {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+        }
+        
+        .preview-panel {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 87, 34, 0.05);
+        }
+        
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .controls {
+            margin-top: 1.5rem;
+        }
+        
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--light-gray);
+            outline: none;
+            -webkitappearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .quality-value {
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+        
+        select, button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            background-color: white;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #E64A19;
+        }
+        
+        .preview-container {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .preview-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .placeholder-video {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 1.2rem;
+        }
+        
+        .file-info {
+            width: 100%;
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .file-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .trim-controls {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .trim-range {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        
+        .trim-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .ad-container {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            text-align: center;
+            margin: 2rem auto;
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .editor-container {
+                flex-direction: column;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+                margin-top: 1rem;
+            }
+            
+            nav.active ul {
+                flex-direction: column;
+            }
+            
+            nav.active ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">VideoOptimizer</a>
+            <div class="mobile-menu">☰</div>
+            <nav id="mainNav">
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Optimize Your Videos for Any Platform</h1>
+            <p>Compress, trim, and optimize your videos without losing quality. Perfect for social media, websites, and email.</p>
+        </div>
+    </section>
+
+    <!-- Top Ad Banner -->
+    <div class="container ad-container">
+        <div class="ad-label">Advertisement</div>
+        <!-- Replace with your AdSense code -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="container editor-container">
+        <div class="editor-panel">
+            <h2>Upload & Edit</h2>
+            <div class="upload-area" id="uploadArea">
+                <i>🎬</i>
+                <p>Drag & drop your video here or click to browse</p>
+                <input type="file" id="fileInput" accept="video/*" style="display: none;">
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="quality">Video Quality: <span id="qualityValue" class="quality-value">Medium</span></label>
+                    <input type="range" id="quality" min="1" max="3" value="2" step="1">
+                </div>
+                
+                <div class="control-group">
+                    <label for="format">Output Format:</label>
+                    <select id="format">
+                        <option value="mp4">MP4 (Most Compatible)</option>
+                        <option value="webm">WebM (Better Compression)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="resolution">Output Resolution:</label>
+                    <select id="resolution">
+                        <option value="original">Original Resolution</option>
+                        <option value="1080">1080p (Full HD)</option>
+                        <option value="720">720p (HD)</option>
+                        <option value="480">480p (SD)</option>
+                        <option value="custom">Custom Resolution</option>
+                    </select>
+                </div>
+                
+                <div id="customResolutionContainer" style="display: none;">
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="flex: 1;">
+                            <label for="width">Width (px):</label>
+                            <input type="number" id="width" placeholder="Width" min="10" class="custom-res-input">
+                        </div>
+                        <div style="flex: 1;">
+                            <label for="height">Height (px):</label>
+                            <input type="number" id="height" placeholder="Height" min="10" class="custom-res-input">
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <input type="checkbox" id="keepAspect" checked>
+                        <label for="keepAspect" style="display: inline; font-weight: normal;">Maintain aspect ratio</label>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <input type="checkbox" id="enableTrim">
+                    <label for="enableTrim" style="display: inline; font-weight: normal;">Trim Video</label>
+                </div>
+                
+                <div class="trim-controls" id="trimControls">
+                    <label>Trim Range:</label>
+                    <input type="range" class="trim-range" id="trimRange" min="0" max="100" value="0">
+                    <div class="trim-time">
+                        <span id="startTime">00:00</span>
+                        <span id="endTime">00:00</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button id="setStartBtn">Set Start</button>
+                        <button id="setEndBtn">Set End</button>
+                    </div>
+                </div>
+                
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="progress-text" id="progressText">Processing: 0%</div>
+                </div>
+                
+                <button id="optimizeBtn">Optimize Video</button>
+                <button id="downloadBtn" disabled>Download Optimized Video</button>
+            </div>
+        </div>
+        
+        <div class="preview-panel">
+            <h2>Preview</h2>
+            <div class="preview-container">
+                <video id="previewVideo" controls style="display: none;"></video>
+                <div id="placeholderVideo" class="placeholder-video">
+                    Your optimized video will appear here
+                </div>
+            </div>
+            
+            <div class="file-info">
+                <p><strong>Original Size:</strong> <span id="originalSize">-</span></p>
+                <p><strong>Optimized Size:</strong> <span id="optimizedSize">-</span></p>
+                <p><strong>Duration:</strong> <span id="duration">-</span></p>
+                <p><strong>Reduction:</strong> <span id="reduction">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Ad Banner -->
+    <div class="container ad-container">
+        <div class="ad-label">Advertisement</div>
+        <!-- Replace with your AdSense code -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID_2"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <section class="container" style="margin: 3rem auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: var(--shadow);">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Why Use Our Video Optimizer?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Faster Uploads</h3>
+                <p>Optimized videos upload faster to social media platforms and websites, saving you time and bandwidth.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Better Compatibility</h3>
+                <p>Our tool ensures your videos are in the right format and resolution for any platform or device.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Improved Engagement</h3>
+                <p>Properly optimized videos load faster, leading to better viewer retention and engagement rates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="container ad-container">
+        <div class="ad-label">Advertisement</div>
+        <!-- Replace with your AdSense code -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID_3"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+            </div>
+            <p class="copyright">© 2025 VideoOptimizer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Video editor elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewVideo = document.getElementById('previewVideo');
+        const placeholderVideo = document.getElementById('placeholderVideo');
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('qualityValue');
+        const formatSelect = document.getElementById('format');
+        const resolutionSelect = document.getElementById('resolution');
+        const customResolutionContainer = document.getElementById('customResolutionContainer');
+        const enableTrim = document.getElementById('enableTrim');
+        const trimControls = document.getElementById('trimControls');
+        const trimRange = document.getElementById('trimRange');
+        const startTime = document.getElementById('startTime');
+        const endTime = document.getElementById('endTime');
+        const setStartBtn = document.getElementById('setStartBtn');
+        const setEndBtn = document.getElementById('setEndBtn');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const optimizeBtn = document.getElementById('optimizeBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const originalSizeSpan = document.getElementById('originalSize');
+        const optimizedSizeSpan = document.getElementById('optimizedSize');
+        const durationSpan = document.getElementById('duration');
+        const reductionSpan = document.getElementById('reduction');
+        
+        // Video data
+        let originalFile = null;
+        let originalVideoUrl = null;
+        let optimizedVideoUrl = null;
+        let videoDuration = 0;
+        let trimStart = 0;
+        let trimEnd = 100;
+        
+        // Quality presets
+        const qualityPresets = {
+            1: { name: "Low", bitrate: 500000 },  // 500 kbps
+            2: { name: "Medium", bitrate: 1500000 },  // 1.5 Mbps
+            3: { name: "High", bitrate: 4000000 }  // 4 Mbps
+        };
+        
+        // Update quality value display
+        qualitySlider.addEventListener('input', function() {
+            const quality = parseInt(this.value);
+            qualityValue.textContent = qualityPresets[quality].name;
+        });
+        
+        // Show/hide custom resolution inputs
+        resolutionSelect.addEventListener('change', function() {
+            customResolutionContainer.style.display = this.value === 'custom' ? 'block' : 'none';
+        });
+        
+        // Show/hide trim controls
+        enableTrim.addEventListener('change', function() {
+            trimControls.style.display = this.checked ? 'block' : 'none';
+        });
+        
+        // Handle drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = (--primary-color);
+            uploadArea.style.backgroundColor = 'rgba(255, 87, 34, 0.1)';
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#ccc';
+            uploadArea.style.backgroundColor = 'transparent';
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#ccc';
+            uploadArea.style.backgroundColor = 'transparent';
+            
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                handleFileSelection();
+            }
+        });
+        
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', handleFileSelection);
+        
+        function handleFileSelection() {
+            if (fileInput.files && fileInput.files[0]) {
+                originalFile = fileInput.files[0];
+                
+                // Display original file info
+                originalSizeSpan.textContent = formatFileSize(originalFile.size);
+                optimizedSizeSpan.textContent = '-';
+                reductionSpan.textContent = '-';
+                
+                // Create video URL
+                if (originalVideoUrl) {
+                    URL.revokeObjectURL(originalVideoUrl);
+                }
+                originalVideoUrl = URL.createObjectURL(originalFile);
+                
+                // Setup video preview
+                previewVideo.src = originalVideoUrl;
+                previewVideo.style.display = 'block';
+                placeholderVideo.style.display = 'none';
+                
+                // Reset trim controls
+                trimRange.value = 0;
+                trimStart = 0;
+                trimEnd = 100;
+                
+                // Wait for metadata to load
+                previewVideo.onloadedmetadata = function() {
+                    videoDuration = previewVideo.duration;
+                    durationSpan.textContent = formatTime(videoDuration);
+                    endTime.textContent = formatTime(videoDuration);
+                    
+                    // Setup trim range
+                    trimRange.max = Math.floor(videoDuration);
+                };
+                
+                previewVideo.onerror = function() {
+                    alert('Error loading video. Please try another file.');
+                };
+                
+                downloadBtn.disabled = true;
+            }
+        }
+        
+        // Set trim start point
+        setStartBtn.addEventListener('click', function() {
+            trimStart = previewVideo.currentTime;
+            updateTrimDisplay();
+        });
+        
+        // Set trim end point
+        setEndBtn.addEventListener('click', function() {
+            trimEnd = previewVideo.currentTime;
+            updateTrimDisplay();
+        });
+        
+        // Update trim range display
+        function updateTrimDisplay() {
+            startTime.textContent = formatTime(trimStart);
+            endTime.textContent = formatTime(trimEnd);
+        }
+        
+        // Format time as MM:SS
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        // Optimize video
+        optimizeBtn.addEventListener('click', optimizeVideo);
+        
+        function optimizeVideo() {
+            if (!originalFile) {
+                alert('Please select a video first');
+                return;
+            }
+            
+            // Show progress bar
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressText.textContent = 'Processing: 0%';
+            
+            // Get settings
+            const quality = parseInt(qualitySlider.value);
+            const format = formatSelect.value;
+            const resolution = resolutionSelect.value;
+            
+            // Create a MediaRecorder to process the video
+            const mediaSource = new MediaSource();
+            const videoUrl = URL.createObjectURL(mediaSource);
+            
+            // In a real application, you would use a more robust video processing library
+            // or server-side processing. This is a simplified client-side example.
+            
+            // Simulate processing with progress updates
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += 5;
+                if (progress > 100) progress = 100;
+                progressBar.style.width = `${progress}%`;
+                progressText.textContent = `Processing: ${progress}%`;
+                
+                if (progress === 100) {
+                    clearInterval(progressInterval);
+                    onProcessingComplete();
+                }
+            }, 200);
+            
+            function onProcessingComplete() {
+                // In a real implementation, this would be the actual processed video blob
+                // For this demo, we'll just use the original file with simulated optimization
+                const optimizedBlob = new Blob([originalFile], { type: `video/${format}` });
+                
+                // Create download URL
+                if (optimizedVideoUrl) {
+                    URL.revokeObjectURL(optimizedVideoUrl);
+                }
+                optimizedVideoUrl = URL.createObjectURL(optimizedBlob);
+                
+                // Display optimized video
+                previewVideo.src = optimizedVideoUrl;
+                
+                // Update file info
+                const optimizedSize = optimizedBlob.size;
+                optimizedSizeSpan.textContent = formatFileSize(optimizedSize);
+                
+                const reduction = Math.round(((originalFile.size - optimizedSize) / originalFile.size) * 100);
+                reductionSpan.textContent = reduction > 0 ? `${reduction}% smaller` : 'No reduction';
+                
+                // Enable download button
+                downloadBtn.disabled = false;
+                
+                // Hide progress bar
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                }, 1000);
+            }
+        }
+        
+        // Download optimized video
+        downloadBtn.addEventListener('click', function() {
+            if (!optimizedVideoUrl) return;
+            
+            const a = document.createElement('a');
+            a.href = optimizedVideoUrl;
+            
+            // Generate filename
+            let filename = originalFile.name;
+            const lastDot = filename.lastIndexOf('.');
+            if (lastDot > 0) {
+                filename = filename.substring(0, lastDot);
+            }
+            
+            // Add quality and format to filename
+            const quality = qualityPresets[parseInt(qualitySlider.value)].name.toLowerCase();
+            const format = formatSelect.value;
+            
+            filename += `-optimized-${quality}-${format}.${format}`;
+            
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            
+            setTimeout(() => {
+                document.body.removeChild(a);
+            }, 100);
+        });
+        
+        // Format file size for display
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // Initialize ads
+        document.addEventListener('DOMContentLoaded', function() {
+            // AdSense ads are already initialized in the script tags
+            // Additional ad-related JavaScript can go here
+        });
+    </script>
+</body>
+</html>

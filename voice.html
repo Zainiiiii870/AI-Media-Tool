@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online voice generator tool. Convert text to natural sounding speech with customizable voices and download as MP3.">
+    <meta name="keywords" content="voice generator, text to speech, TTS, speech synthesis, voiceover tool, online voice maker">
+    <meta name="author" content="VoiceGenPro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Voice Generator | Text to Speech Tool">
+    <meta property="og:description" content="Convert text to natural sounding speech with our free online voice generator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <title>Free Online Voice Generator | Text to Speech Tool</title>
+    <link rel="canonical" href="https://yourdomain.com">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #ea4335;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --medium-gray: #757575;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+            padding: 0;
+            margin: 0;
+        }
+        
+        header {
+            background-color: rgb(83, 38, 32);
+            box-shadow: var(--shadow);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 1rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .ad-container {
+            margin: 2rem auto;
+            text-align: center;
+            background-color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .voicegen-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .text-input {
+            width: 100%;
+            min-height: 150px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            resize: vertical;
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .control-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .slider {
+            flex: 1;
+            -webkitappearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: #ddd;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .slider-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            background-color: white;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #3367d6;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .secondary-button {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .secondary-button:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+        }
+        
+        .results {
+            display: none;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .audio-player {
+            width: 100%;
+            margin: 1.5rem 0;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            color: var(--medium-gray);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .stat-card p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-gray);
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .download-btn:hover {
+            background-color: #2d9249;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            button, .download-btn {
+                width: 100%;
+            }
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 2rem auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Character counter */
+        .char-counter {
+            text-align: right;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Voice preview */
+        .voice-preview-btn {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .voice-preview-btn:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">VoiceGenPro</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="ad-container">
+            <!-- AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_UNIT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <section class="hero">
+            <h1>Free Online Voice Generator</h1>
+            <p>Convert text to natural sounding speech with our advanced text-to-speech tool. Choose from multiple voices and customize speed, pitch, and more.</p>
+        </section>
+
+        <section class="voicegen-container">
+            <textarea id="textInput" class="text-input" placeholder="Enter your text here to convert to speech..."></textarea>
+            <div class="char-counter"><span id="charCount">0</span>/5000 characters</div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="voiceSelect">Voice <span class="tooltip">ℹ️<span class="tooltiptext">Select a voice that matches your needs</span></span></label>
+                    <select id="voiceSelect">
+                        <option value="en-US-Wavenet-A">English (US) - Male 1</option>
+                        <option value="en-US-Wavenet-B">English (US) - Male 2</option>
+                        <option value="en-US-Wavenet-C">English (US) - Female 1</option>
+                        <option value="en-US-Wavenet-D">English (US) - Female 2</option>
+                        <option value="en-GB-Wavenet-A">English (UK) - Male</option>
+                        <option value="en-GB-Wavenet-B">English (UK) - Female</option>
+                        <option value="es-ES-Wavenet-A">Spanish (Spain) - Male</option>
+                        <option value="fr-FR-Wavenet-A">French (France) - Male</option>
+                        <option value="de-DE-Wavenet-A">German (Germany) - Male</option>
+                    </select>
+                    <button class="voice-preview-btn" onclick="previewVoice()">
+                        <span>▶️</span> Preview Voice
+                    </button>
+                </div>
+                
+                <div class="control-group">
+                    <label for="speedControl">Speed <span class="tooltip">ℹ️<span class="tooltiptext">Adjust how fast the voice speaks</span></span></label>
+                    <div class="slider-container">
+                        <input type="range" id="speedControl" class="slider" min="0.5" max="2" step="0.1" value="1">
+                        <span id="speedValue" class="slider-value">1x</span>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="pitchControl">Pitch <span class="tooltip">ℹ️<span class="tooltiptext">Adjust the tone of the voice (higher = more feminine, lower = more masculine)</span></span></label>
+                    <div class="slider-container">
+                        <input type="range" id="pitchControl" class="slider" min="-20" max="20" value="0">
+                        <span id="pitchValue" class="slider-value">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="generateBtn">Generate Voice</button>
+                <button id="resetBtn" class="secondary-button">Reset</button>
+            </div>
+
+            <div class="spinner" id="spinner"></div>
+
+            <div class="results" id="results">
+                <h2>Your Generated Voice</h2>
+                
+                <audio id="audioPlayer" class="audio-player" controls></audio>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>Voice</h3>
+                        <p id="voiceUsed">English (US) - Male 1</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Speed</h3>
+                        <p id="speedUsed">1x</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pitch</h3>
+                        <p id="pitchUsed">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Duration</h3>
+                        <p id="durationUsed">0s</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="#" id="downloadBtn" class="download-btn">Download as MP3</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="ad-container">
+            <!-- AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_UNIT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+        <div class="container copyright">
+            <p>&copy; 2025 VoiceGenPro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const textInput = document.getElementById('textInput');
+            const charCount = document.getElementById('charCount');
+            const voiceSelect = document.getElementById('voiceSelect');
+            const speedControl = document.getElementById('speedControl');
+            const speedValue = document.getElementById('speedValue');
+            const pitchControl = document.getElementById('pitchControl');
+            const pitchValue = document.getElementById('pitchValue');
+            const generateBtn = document.getElementById('generateBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const resultsSection = document.getElementById('results');
+            const spinner = document.getElementById('spinner');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const voiceUsed = document.getElementById('voiceUsed');
+            const speedUsed = document.getElementById('speedUsed');
+            const pitchUsed = document.getElementById('pitchUsed');
+            const durationUsed = document.getElementById('durationUsed');
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            let audioBlob = null;
+            let synthesis = window.speechSynthesis;
+            let voices = [];
+            
+            // Event listeners
+            textInput.addEventListener('input', updateCharCount);
+            speedControl.addEventListener('input', updateSpeedValue);
+            pitchControl.addEventListener('input', updatePitchValue);
+            generateBtn.addEventListener('click', generateVoice);
+            resetBtn.addEventListener('click', resetTool);
+            audioPlayer.addEventListener('loadedmetadata', updateDuration);
+            
+            // Initialize
+            updateCharCount();
+            updateSpeedValue();
+            updatePitchValue();
+            
+            // For production, you would need to implement actual TTS API calls
+            // This is a simulation using the Web Speech API for demo purposes
+            
+            // Functions
+            function updateCharCount() {
+                const count = textInput.value.length;
+                charCount.textContent = count;
+                generateBtn.disabled = count === 0 || count > 5000;
+            }
+            
+            function updateSpeedValue() {
+                speedValue.textContent = `${speedControl.value}x`;
+            }
+            
+            function updatePitchValue() {
+                pitchValue.textContent = pitchControl.value;
+            }
+            
+            function updateDuration() {
+                if (!isNaN(audioPlayer.duration)) {
+                    durationUsed.textContent = `${Math.round(audioPlayer.duration)}s`;
+                }
+            }
+            
+            function previewVoice() {
+                if (textInput.value.trim() === '') {
+                    alert('Please enter some text to preview the voice');
+                    return;
+                }
+                
+                const utterance = new SpeechSynthesisUtterance(textInput.value.substring(0, 100));
+                const selectedVoice = voiceSelect.options[voiceSelect.selectedIndex].text;
+                
+                utterance.voice = voices.find(voice => voice.name === voiceSelect.value) || null;
+                utterance.rate = parseFloat(speedControl.value);
+                utterance.pitch = 1 + (parseInt(pitchControl.value) / 20);
+                
+                synthesis.speak(utterance);
+            }
+            
+            function generateVoice() {
+                if (textInput.value.trim() === '') {
+                    alert('Please enter some text to generate voice');
+                    return;
+                }
+                
+                // Show loading spinner
+                spinner.style.display = 'block';
+                generateBtn.disabled = true;
+                
+                // In a real implementation, you would call a TTS API here
+                // This is a simulation using the Web Speech API for demo purposes
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    const utterance = new SpeechSynthesisUtterance(textInput.value);
+                    const selectedVoice = voiceSelect.options[voiceSelect.selectedIndex].text;
+                    
+                    utterance.voice = voices.find(voice => voice.name === voiceSelect.value) || null;
+                    utterance.rate = parseFloat(speedControl.value);
+                    utterance.pitch = 1 + (parseInt(pitchControl.value) / 20);
+                    
+                    // For demo, we'll just play it directly
+                    synthesis.speak(utterance);
+                    
+                    // In a real app, you would:
+                    // 1. Call a TTS API to generate audio file
+                    // 2. Receive the audio file URL or blob
+                    // 3. Set it to the audio player
+                    
+                    // For this demo, we'll simulate receiving an audio blob
+                    simulateAudioGeneration(selectedVoice);
+                }, 1000);
+            }
+            
+            function simulateAudioGeneration(selectedVoice) {
+                // This simulates receiving an audio file from a TTS API
+                // In reality, you would need to implement actual API calls to:
+                // - Google Cloud Text-to-Speech
+                // - Amazon Polly
+                // - IBM Watson Text to Speech
+                // - or another TTS service
+                
+                setTimeout(() => {
+                    // Create a dummy audio blob for demonstration
+                    // In production, this would be the actual audio from your TTS API
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.type = 'sine';
+                    oscillator.frequency.value = 440;
+                    gainNode.gain.value = 0.1;
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    const duration = Math.min(10, textInput.value.length / 20); // Simulate duration based on text length
+                    
+                    // For demo purposes, we'll just play a tone
+                    oscillator.start();
+                    oscillator.stop(audioContext.currentTime + duration);
+                    
+                    // Simulate getting an actual audio file (would be from API in production)
+                    setTimeout(() => {
+                        // This is where you would normally handle the real audio blob
+                        // For demo, we'll create a dummy download link
+                        
+                        // Display results
+                        voiceUsed.textContent = selectedVoice;
+                        speedUsed.textContent = `${speedControl.value}x`;
+                        pitchUsed.textContent = pitchControl.value;
+                        
+                        // Create a dummy audio URL for the player
+                        const audioUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // Example audio
+                        audioPlayer.src = audioUrl;
+                        
+                        // Set up download button
+                        downloadBtn.href = audioUrl;
+                        downloadBtn.download = `voicegen_${Date.now()}.mp3`;
+                        
+                        // Hide spinner and show results
+                        spinner.style.display = 'none';
+                        resultsSection.style.display = 'block';
+                        generateBtn.disabled = false;
+                        
+                        // Scroll to results
+                        resultsSection.scrollIntoView({ behavior: 'smooth' });
+                    }, duration * 1000);
+                }, 500);
+            }
+            
+            function resetTool() {
+                textInput.value = '';
+                audioPlayer.src = '';
+                audioBlob = null;
+                
+                voiceUsed.textContent = '';
+                speedUsed.textContent = '';
+                pitchUsed.textContent = '';
+                durationUsed.textContent = '0s';
+                
+                updateCharCount();
+                speedControl.value = 1;
+                pitchControl.value = 0;
+                updateSpeedValue();
+                updatePitchValue();
+                
+                resultsSection.style.display = 'none';
+                spinner.style.display = 'none';
+                
+                // Stop any ongoing speech
+                synthesis.cancel();
+            }
+            
+            // Load available voices
+            function loadVoices() {
+                voices = synthesis.getVoices();
+                
+                // Populate voice select with available voices
+                voiceSelect.innerHTML = '';
+                voices.forEach(voice => {
+                    const option = document.createElement('option');
+                    option.value = voice.name;
+                    option.textContent = `${voice.name} (${voice.lang})`;
+                    voiceSelect.appendChild(option);
+                });
+                
+                // If no voices (might happen on some browsers), add default options
+                if (voices.length === 0) {
+                    const defaultVoices = [
+                        {value: 'en-US-Wavenet-A', text: 'English (US) - Male 1'},
+                        {value: 'en-US-Wavenet-B', text: 'English (US) - Male 2'},
+                        {value: 'en-US-Wavenet-C', text: 'English (US) - Female 1'},
+                        {value: 'en-US-Wavenet-D', text: 'English (US) - Female 2'}
+                    ];
+                    
+                    defaultVoices.forEach(voice => {
+                        const option = document.createElement('option');
+                        option.value = voice.value;
+                        option.textContent = voice.text;
+                        voiceSelect.appendChild(option);
+                    });
+                }
+            }
+            
+            // Some browsers need this event to load voices
+            synthesis.onvoiceschanged = loadVoices;
+            loadVoices();
+            
+            // Initialize AdSense (if not already initialized)
+            if (typeof adsbygoogle !== 'undefined') {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
+    </script>
+</body>
+</html>

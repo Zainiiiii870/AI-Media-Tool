@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create stunning AI-generated artwork with our free online tool. Transform your ideas into unique digital art with customizable styles and quality settings.">
+    <meta name="keywords" content="AI art generator, digital art creator, AI image generator, art tool, creative AI">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="AI Art Generator - Create Unique Digital Art">
+    <meta property="og:description" content="Generate beautiful AI artwork with customizable styles and quality settings. No artistic skills required!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourartgenerator.com">
+    <meta property="og:image" content="https://yourartgenerator.com/preview.jpg">
+    <title>AI Art Generator - Create Stunning Digital Art | ArtGen</title>
+    <link rel="canonical" href="https://yourartgenerator.com" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #9C27B0;
+            --secondary-color: #673AB7;
+            --accent-color: #FF9800;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .generator-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        .controls-panel {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+        }
+        
+        .output-panel {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .prompt-area {
+            margin-bottom: 1.5rem;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .controls {
+            margin-top: 1.5rem;
+        }
+        
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--light-gray);
+            outline: none;
+            -webkitappearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .quality-value {
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+        
+        select, button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            background-color: white;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #7B1FA2;
+        }
+        
+        button.secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .output-container {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            min-height: 300px;
+        }
+        
+        .output-container img {
+            max-width: 100%;
+            max-height: 400px;
+            display: block;
+        }
+        
+        .placeholder-art {
+            width: 100%;
+            height: 300px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 1.2rem;
+            border-radius: 4px;
+        }
+        
+        .file-info {
+            width: 100%;
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .file-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .style-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .style-option {
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .style-option:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .style-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(156, 39, 176, 0.1);
+        }
+        
+        .style-option img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ad-container {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            text-align: center;
+            margin: 2rem auto;
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .generator-container {
+                flex-direction: column;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+                margin-top: 1rem;
+            }
+            
+            nav.active ul {
+                flex-direction: column;
+            }
+            
+            nav.active ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .style-options {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">ArtGen</a>
+            <div class="mobile-menu">☰</div>
+            <nav id="mainNav">
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Create Stunning AI Art</h1>
+            <p>Transform your ideas into unique digital artwork with our powerful AI generator. No artistic skills required!</p>
+        </div>
+    </section>
+
+    <!-- Top Ad Banner -->
+    <div class="container ad-container">
+        <div class="ad-label">Advertisement</div>
+        <!-- Replace with your AdSense code -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="container generator-container">
+        <div class="controls-panel">
+            <h2>Create Your Art</h2>
+            <div class="prompt-area">
+                <label for="prompt">Describe what you want to create:</label>
+                <textarea id="prompt" placeholder="A majestic lion in the style of Van Gogh, vibrant colors..."></textarea>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="quality">Quality Level: <span id="qualityValue" class="quality-value">High</span></label>
+                    <input type="range" id="quality" min="1" max="3" value="3" step="1">
+                </div>
+                
+                <div class="control-group">
+                    <label for="style">Art Style:</label>
+                    <select id="style">
+                        <option value="fantasy">Fantasy</option>
+                        <option value="realistic">Realistic</option>
+                        <option value="abstract">Abstract</option>
+                        <option value="anime">Anime</option>
+                        <option value="watercolor">Watercolor</option>
+                        <option value="cyberpunk">Cyberpunk</option>
+                        <option value="custom">Custom Style</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Style Examples:</label>
+                    <div class="style-options">
+                        <div class="style-option" data-style="fantasy">
+                            <img src="https://via.placeholder.com/100/9C27B0/FFFFFF?text=Fantasy" alt="Fantasy">
+                            <div>Fantasy</div>
+                        </div>
+                        <div class="style-option" data-style="realistic">
+                            <img src="https://via.placeholder.com/100/673AB7/FFFFFF?text=Realistic" alt="Realistic">
+                            <div>Realistic</div>
+                        </div>
+                        <div class="style-option" data-style="abstract">
+                            <img src="https://via.placeholder.com/100/3F51B5/FFFFFF?text=Abstract" alt="Abstract">
+                            <div>Abstract</div>
+                        </div>
+                        <div class="style-option" data-style="anime">
+                            <img src="https://via.placeholder.com/100/2196F3/FFFFFF?text=Anime" alt="Anime">
+                            <div>Anime</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="size">Output Size:</label>
+                    <select id="size">
+                        <option value="512">512×512 (Small)</option>
+                        <option value="768">768×768 (Medium)</option>
+                        <option value="1024">1024×1024 (Large)</option>
+                        <option value="custom">Custom Size</option>
+                    </select>
+                </div>
+                
+                <div id="customSizeContainer" style="display: none; margin-top: 0.5rem;">
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="flex: 1;">
+                            <label for="width">Width (px):</label>
+                            <input type="number" id="width" placeholder="Width" min="256" max="2048" value="512" class="custom-size-input">
+                        </div>
+                        <div style="flex: 1;">
+                            <label for="height">Height (px):</label>
+                            <input type="number" id="height" placeholder="Height" min="256" max="2048" value="512" class="custom-size-input">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="progress-text" id="progressText">Generating: 0%</div>
+                </div>
+                
+                <button id="generateBtn">Generate Art</button>
+                <button id="downloadBtn" class="secondary" disabled>Download Artwork</button>
+            </div>
+        </div>
+        
+        <div class="output-panel">
+            <h2>Your Artwork</h2>
+            <div class="output-container">
+                <img id="outputImage" style="display: none;">
+                <div id="placeholderArt" class="placeholder-art">
+                    Your AI-generated artwork will appear here
+                </div>
+            </div>
+            
+            <div class="file-info">
+                <p><strong>Prompt:</strong> <span id="promptUsed">-</span></p>
+                <p><strong>Style:</strong> <span id="styleUsed">-</span></p>
+                <p><strong>Size:</strong> <span id="sizeUsed">-</span></p>
+                <p><strong>Quality:</strong> <span id="qualityUsed">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Ad Banner -->
+    <div class="container ad-container">
+        <div class="ad-label">Advertisement</div>
+        <!-- Replace with your AdSense code -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID_2"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <section class="container" style="margin: 3rem auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: var(--shadow);">
+        <h2 style="text-align: center; margin-bottom: 2rem;">How Our AI Art Generator Works</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">1. Describe Your Vision</h3>
+                <p>Enter a text description of what you want to create. Be as detailed as possible for best results.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">2. Choose Your Style</h3>
+                <p>Select from various art styles or let the AI surprise you with its creativity.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">3. Generate & Download</h3>
+                <p>Create unique artwork in seconds and download it in high resolution for any use.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad Banner -->
+    <div class="container ad-container">
+        <div class="ad-label">Advertisement</div>
+        <!-- Replace with your AdSense code -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID_3"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+            </div>
+            <p class="copyright">© 2023 ArtGen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Art generator elements
+        const promptInput = document.getElementById('prompt');
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('qualityValue');
+        const styleSelect = document.getElementById('style');
+        const sizeSelect = document.getElementById('size');
+        const customSizeContainer = document.getElementById('customSizeContainer');
+        const widthInput = document.getElementById('width');
+        const heightInput = document.getElementById('height');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const generateBtn = document.getElementById('generateBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const outputImage = document.getElementById('outputImage');
+        const placeholderArt = document.getElementById('placeholderArt');
+        const promptUsed = document.getElementById('promptUsed');
+        const styleUsed = document.getElementById('styleUsed');
+        const sizeUsed = document.getElementById('sizeUsed');
+        const qualityUsed = document.getElementById('qualityUsed');
+        const styleOptions = document.querySelectorAll('.style-option');
+        
+        // Art generation data
+        let generatedArtUrl = null;
+        let generationSettings = {};
+        
+        // Quality presets
+        const qualityPresets = {
+            1: { name: "Low", steps: 20 },
+            2: { name: "Medium", steps: 40 },
+            3: { name: "High", steps: 60 }
+        };
+        
+        // Style examples selection
+        styleOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                styleOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                styleSelect.value = this.dataset.style;
+            });
+        });
+        
+        // Update quality value display
+        qualitySlider.addEventListener('input', function() {
+            const quality = parseInt(this.value);
+            qualityValue.textContent = qualityPresets[quality].name;
+        });
+        
+        // Show/hide custom size inputs
+        sizeSelect.addEventListener('change', function() {
+            customSizeContainer.style.display = this.value === 'custom' ? 'block' : 'none';
+        });
+        
+        // Generate art
+        generateBtn.addEventListener('click', generateArt);
+        
+        function generateArt() {
+            const prompt = promptInput.value.trim();
+            if (!prompt) {
+                alert('Please enter a description of what you want to create');
+                return;
+            }
+            
+            // Get settings
+            const quality = parseInt(qualitySlider.value);
+            const style = styleSelect.value;
+            let width, height;
+            
+            if (sizeSelect.value === 'custom') {
+                width = parseInt(widthInput.value) || 512;
+                height = parseInt(heightInput.value) || 512;
+            } else {
+                width = height = parseInt(sizeSelect.value);
+            }
+            
+            // Validate dimensions
+            width = Math.min(Math.max(width, 256), 2048);
+            height = Math.min(Math.max(height, 256), 2048);
+            
+            // Save settings for display
+            generationSettings = {
+                prompt,
+                quality: qualityPresets[quality].name,
+                style,
+                width,
+                height
+            };
+            
+            // Update UI
+            promptUsed.textContent = prompt;
+            styleUsed.textContent = style;
+            sizeUsed.textContent = `${width}×${height}`;
+            qualityUsed.textContent = qualityPresets[quality].name;
+            
+            // Show progress bar
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressText.textContent = 'Generating: 0%';
+            
+            // Simulate AI art generation (in a real app, this would call an API)
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += 2 + Math.floor(Math.random() * 5);
+                if (progress > 100) progress = 100;
+                progressBar.style.width = `${progress}%`;
+                progressText.textContent = `Generating: ${progress}%`;
+                
+                if (progress === 100) {
+                    clearInterval(progressInterval);
+                    onGenerationComplete();
+                }
+            }, 200);
+            
+            function onGenerationComplete() {
+                // In a real implementation, this would receive the generated image from an API
+                // For this demo, we'll create a placeholder image with the settings
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                
+                // Create gradient background based on style
+                let gradient;
+                switch(style) {
+                    case 'fantasy':
+                        gradient = ctx.createLinearGradient(0, 0, width, height);
+                        gradient.addColorStop(0, '#9C27B0');
+                        gradient.addColorStop(1, '#3F51B5');
+                        break;
+                    case 'realistic':
+                        gradient = ctx.createLinearGradient(0, 0, width, height);
+                        gradient.addColorStop(0, '#607D8B');
+                        gradient.addColorStop(1, '#455A64');
+                        break;
+                    case 'abstract':
+                        gradient = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, width/2);
+                        gradient.addColorStop(0, '#FF5722');
+                        gradient.addColorStop(0.5, '#FF9800');
+                        gradient.addColorStop(1, '#FFC107');
+                        break;
+                    case 'anime':
+                        gradient = ctx.createLinearGradient(0, 0, 0, height);
+                        gradient.addColorStop(0, '#2196F3');
+                        gradient.addColorStop(1, '#00BCD4');
+                        break;
+                    default:
+                        gradient = ctx.createLinearGradient(0, 0, width, height);
+                        gradient.addColorStop(0, '#8E24AA');
+                        gradient.addColorStop(1, '#3949AB');
+                }
+                
+                // Fill background
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, width, height);
+                
+                // Add some "AI-generated" elements
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                for (let i = 0; i < 5; i++) {
+                    const size = Math.random() * 100 + 50;
+                    ctx.beginPath();
+                    ctx.arc(
+                        Math.random() * width,
+                        Math.random() * height,
+                        size,
+                        0,
+                        Math.PI * 2
+                    );
+                    ctx.fill();
+                }
+                
+                // Add text representing the prompt
+                ctx.fillStyle = 'white';
+                ctx.font = `bold ${Math.min(width/20, 24)}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.fillText(prompt.split(' ').slice(0, 5).join(' '), width/2, height/2);
+                
+                // Convert to blob
+                canvas.toBlob(function(blob) {
+                    // Create URL for the generated image
+                    if (generatedArtUrl) {
+                        URL.revokeObjectURL(generatedArtUrl);
+                    }
+                    generatedArtUrl = URL.createObjectURL(blob);
+                    
+                    // Display the generated image
+                    outputImage.src = generatedArtUrl;
+                    outputImage.style.display = 'block';
+                    placeholderArt.style.display = 'none';
+                    
+                    // Enable download button
+                    downloadBtn.disabled = false;
+                    
+                    // Hide progress bar
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                    }, 1000);
+                }, 'image/png');
+            }
+        }
+        
+        // Download generated art
+        downloadBtn.addEventListener('click', function() {
+            if (!generatedArtUrl) return;
+            
+            const a = document.createElement('a');
+            a.href = generatedArtUrl;
+            
+            // Generate filename from prompt
+            let filename = generationSettings.prompt.toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '')
+                .substring(0, 50) || 'ai-art';
+            
+            filename += `-${generationSettings.style}-${Date.now()}.png`;
+            
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            
+            setTimeout(() => {
+                document.body.removeChild(a);
+            }, 100);
+        });
+        
+        // Initialize ads
+        document.addEventListener('DOMContentLoaded', function() {
+            // AdSense ads are already initialized in the script tags
+            // Additional ad-related JavaScript can go here
+            
+            // Select first style option by default
+            if (styleOptions.length > 0) {
+                styleOptions[0].classList.add('selected');
+            }
+        });
+    </script>
+</body>
+</html>
